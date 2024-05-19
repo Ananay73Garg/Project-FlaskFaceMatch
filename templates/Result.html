@@ -1,0 +1,20 @@
+<html>
+<body>
+    <center>
+    <h1>Result</h1>
+
+    {% if result2 == e %}
+        <p style = "color:red">FAILURE</p>
+        <p style = "color:red">{{result1}}</p>
+    {% else %}
+            <h2 style: color="red">Confidence Percentage: {{ result1 }}%</h2>
+            <br><br>
+            {% if result1 >=80 %}
+            <p style = "color:green">Matching!</p>
+            {% else %}
+            <p style = "color:red">Not a Match!</p>
+            {% endif %}
+    {% endif %}
+    </center>
+</body>
+</html>
