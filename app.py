@@ -8,6 +8,8 @@ import statistics
 #Start the App.
 app = Flask(__name__)
 
+os.mkdir(r'/Users/ananaygarg/Desktop/Code/project/images')
+
 	#Configure the Image folder.
 app.config['UPLOAD_FOLDER'] = r'/Users/ananaygarg/Desktop/Code/project/images'
 ax = []
