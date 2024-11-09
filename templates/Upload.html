@@ -5,7 +5,11 @@
     <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_image') }}">
         <input type="file" name="file" accept="image/*" required><br><br>
         <input type="file" name= "file2" accept="image/*" required><br><br>
-        <input type="submit" value = "Upload">
+        VGG-Face(recommended)<input type="checkbox" value="VGG-Face" name= "mycb" ><br><br>
+        Facenet <input type="checkbox" value="Facenet" name= "mycb" ><br><br>
+        OpenFace<input type="checkbox" value="OpenFace" name= "mycb" ><br><br>
+        ArcFace(recommended) <input type="checkbox" value="ArcFace" name= 'mycb' ><br><br> 
+        <input type="submit" value = "Upload">
     </form>
     </center>
 </body>
