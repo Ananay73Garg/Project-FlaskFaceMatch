@@ -8,10 +8,10 @@ import statistics
 #Start the App.
 app = Flask(__name__)
 
+#os.mkdir(r'/Users/ananaygarg/Desktop/Code/project-flask/images')
 
-
-	#Configure the Image folder.
-app.config['UPLOAD_FOLDER'] = r'/Users/ananaygarg/Desktop/Code/project/images'
+#Configure the Image folder.
+app.config['UPLOAD_FOLDER'] = r'/Users/ananaygarg/Desktop/Code/project-flask/images'
 ax = []
 
 #Route the app(Create its journey).
@@ -32,6 +32,7 @@ def upload_image():
         t = 0
         m = 1
         p = 0
+        ax = request.form.getlist('mycb')
         
         #The percentage function.
         def face_distance_to_conf(face_distance, face_match_threshold):
@@ -49,15 +50,15 @@ def upload_image():
         #Start the analysis.
         
         try:
-                    # models = ['VGG-Face','Facenet','OpenFace','ArcFace']
-                    # metrics = ['cosine','euclidean','euclidean_l2']
-                working  = ["VGG-Face","ArcFace"]
+                models = ['VGG-Face','Facenet','OpenFace','ArcFace']
+                # metrics = ['cosine','euclidean','euclidean_l2']
+                working  = ax
                 for i in working:    
                     result = DeepFace.verify(img1_path=img,img2_path=img2,model_name=i)
                     face_distance = result['distance']
                     face_match_threshold = result['threshold']
                     confidence = face_distance_to_conf(face_distance, face_match_threshold)
-                    percentage = round(confidence * 100, 2)
+                    percentage = round(confidence * 100, len(working))
                     t+=percentage
                     
                     if result['verified']=='False' :
